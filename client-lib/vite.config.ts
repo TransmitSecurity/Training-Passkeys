@@ -1,17 +1,17 @@
 // vite.config.js
-import { fileURLToPath } from "node:url";
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
-import pkg from "./package.json";
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
+import pkg from './package.json'
 
 export default defineConfig({
   build: {
     lib: {
-      name: "ts-demo-server-lib",
-      entry: ["./src/index.ts"],
-      formats: ["es", "cjs"],
+      name: 'ts-demo-server-lib',
+      entry: ['./src/index.ts'],
+      formats: ['es', 'cjs'],
     },
-    outDir: "lib",
+    outDir: 'lib',
     rollupOptions: {
       external: [
         ...Object.keys(pkg.dependencies), // don't bundle dependencies
@@ -21,7 +21,7 @@ export default defineConfig({
         preserveModules: true,
       },
     },
-    target: "esnext", // transpile as little as possible
+    target: 'esnext', // transpile as little as possible
   },
   plugins: [dts()], // emit TS declaration files
-});
+})
