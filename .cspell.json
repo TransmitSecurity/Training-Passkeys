@@ -1,0 +1,31 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "axios",
+        "composables",
+        "daisyui",
+        "headlessui",
+        "heroicons",
+        "passcode",
+        "Persistedstate",
+        "pinia",
+        "rushstack",
+        "tailwindcss",
+        "toastification",
+        "transmitsecurity",
+        "VITE",
+        "vuelidate",
+        "webauthn"
+    ],
+    "flagWords": [],
+    "ignorePaths": [
+        "package.json",
+        "package-lock.json",
+        "yarn.lock",
+        "tsconfig.json",
+        "node_modules/**",
+        "src/schemas/**",
+        "src/endpoints/**"
+    ]
+}

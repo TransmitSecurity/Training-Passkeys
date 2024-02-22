@@ -1,0 +1,73 @@
+{
+  "name": "@transmitsecurity-dev/ts-demo-client-lib",
+  "version": "1.6.0",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.cjs",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    },
+    "./lib/schemas/*": {
+      "import": "./lib/schemas/*.js",
+      "require": "./lib/schemas/*.cjs",
+      "types": "./lib/schemas/*.d.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmitsecurity-dev/ts-demo-client-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/transmitsecurity-dev/ts-demo-client-lib/issues"
+  },
+  "homepage": "https://github.com/transmitsecurity-dev/ts-demo-client-lib",
+  "engines": {
+    "npm": "^9.5.1"
+  },
+  "volta": {
+    "npm": "9.5.1"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc && vite build",
+    "clean": "rimraf build coverage nyc_output",
+    "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "type:check": "tsc --noEmit",
+    "generate": "openapi-generator-cli generate -g typescript-axios -i openapi/server-spec.json -o src --remove-operation-id-prefix",
+    "cz": "cz",
+    "semantic-release": "semantic-release",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^10.0.1",
+    "@semantic-release/github": "^9.0.4",
+    "@semantic-release/npm": "^10.0.4",
+    "@semantic-release/release-notes-generator": "^11.0.4",
+    "@types/config": "^3.3.0",
+    "@types/prompts": "^2.4.4",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "fast-glob": "^3.3.0",
+    "husky": "^8.0.0",
+    "nyc": "^15.1.0",
+    "rimraf": "^5.0.1",
+    "semantic-release": "^21.0.7",
+    "source-map-support": "^0.5.21",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6",
+    "vite-plugin-dts": "^3.4.0"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
