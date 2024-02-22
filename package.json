@@ -26,8 +26,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "help": "node src/scripts/log-help.js",
-    "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
-    "prepare": "husky install"
+    "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\""
   },
   "dependencies": {
     "@coreui/icons": "^3.0.1",
@@ -80,7 +79,6 @@
     "eslint": "^8.34.0",
     "eslint-plugin-vue": "^9.9.0",
     "happy-dom": "^9.9.2",
-    "husky": "^8.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
     "rollup-plugin-visualizer": "^5.9.0",

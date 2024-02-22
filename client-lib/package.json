@@ -41,8 +41,7 @@
     "type:check": "tsc --noEmit",
     "generate": "openapi-generator-cli generate -g typescript-axios -i openapi/server-spec.json -o src --remove-operation-id-prefix",
     "cz": "cz",
-    "semantic-release": "semantic-release",
-    "prepare": "husky install"
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
@@ -58,7 +57,6 @@
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "fast-glob": "^3.3.0",
-    "husky": "^8.0.0",
     "nyc": "^15.1.0",
     "rimraf": "^5.0.1",
     "semantic-release": "^21.0.7",
