@@ -15,9 +15,4 @@ export default [
       requiresNotAuth: true,
     },
   },
-  {
-    path: '/oidc/verification',
-    name: 'oidcVerification',
-    component: () => import('@/views/OidcVerificationView.vue'),
-  },
 ]
