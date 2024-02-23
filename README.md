@@ -20,15 +20,6 @@ Make sure you have NodeJS 18.6 or higher.
 npm install
 ```
 
-Build the client lib
-
-```bash
-cd client-lib
-npm install
-npm run build
-cd ..
-```
-
 Start the demo
 
 ```bash
