@@ -16,7 +16,9 @@ git clone -b adding-passkeys-starter https://github.com/mluizinkTS/Feb24Workshop
 Build the client lib
 
 ```bash
-cd client-lib && npm run build
+cd client-lib
+npm install
+npm run build
 ```
 
 Install the project dependencies (the client lib is one them, this is why we built it).
