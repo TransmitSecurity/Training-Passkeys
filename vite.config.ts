@@ -73,7 +73,7 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       host: process.env.VITE_HOST ?? '0.0.0.0',
-      port: parseInt(process.env.VITE_PORT ?? '3000'),
+      port: parseInt(process.env.VITE_PORT ?? '4000'),
       proxy: {
         '/generic': {
           target: 'https://webinar.poc.transmit-field.com',
