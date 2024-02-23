@@ -14,7 +14,7 @@ export const userPreferenceStore = defineStore('preferences', {
       this.theme = theme
     },
     async setSuggestWebauthn(value: boolean) {
-      this.suggestWebauthn = value
+      this.suggestWebauthn = true
     },
   },
   // Preferences are persisted in the local storage

@@ -24,6 +24,7 @@ import { userSessionStore } from '@/store/userSession'
 import { handleError } from '@/helpers/errors'
 import { helpers, required, sameAs } from '@vuelidate/validators'
 import { Action, reportAction } from '@/helpers/risk'
+import FooterSection from '@/components/FooterSection.vue'
 
 const { t } = useI18n()
 const firstName: Ref<string> = ref('')
@@ -143,17 +144,13 @@ const passwordValidation$ = useVuelidate(passwordValidationRules, {
   passwordConfirmation,
 })
 
-const errorFound = computed(() => {
-  return dataValidation$.value.$errors && dataValidation$.value.$errors.length > 0
-})
-
-const errorMessage = computed(() => {
-  if (errorFound.value) {
-    return dataValidation$.value.$errors[0].$message.toString()
-  } else {
-    return 'Hidden error message'
-  }
-})
+function fillInDemo() {
+  phone.value = import.meta.env.VITE_DEMO_PHONE || '+33790104001'
+  firstName.value = import.meta.env.VITE_DEMO_FIRST_NAME || 'Martin'
+  lastName.value = import.meta.env.VITE_DEMO_LAST_NAME || 'Dupont'
+  password.value = import.meta.env.VITE_DEMO_PASSWORD || 'mlkjmlkj'
+  email.value = import.meta.env.VITE_DEMO_EMAIL || 'martin@dupont.com'
+}
 </script>
 
 <template>
@@ -165,6 +162,9 @@ const errorMessage = computed(() => {
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="flex justify-center">
+        <a class="link" @click="fillInDemo">Fill with test data</a>
+      </div>
       <!-- Form asking for personal information and contact information -->
       <form
         v-if="screenToShow == 'userInfo'"
@@ -201,10 +201,6 @@ const errorMessage = computed(() => {
           input-type="tel"
           :placeholder="$t('userData.phone')"
         />
-
-        <!-- <div class="text-xs" :class="errorFound ? 'visible' : 'invisible'">
-      <span class="text-error-content">{{ errorMessage }}</span>
-    </div> -->
 
         <div class="flex flex-col gap-y-1">
           <button

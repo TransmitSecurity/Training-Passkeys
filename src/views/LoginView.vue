@@ -11,7 +11,7 @@ import { useToast } from 'vue-toastification'
 import PasswordInput from '@/components/inputs/PasswordInput.vue'
 import { useI18n } from 'vue-i18n'
 import { emailRule, loginPasswordRule } from '@/helpers/validationRules'
-import { onBeforeRouteLeave, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { AuthenticationApi } from '@transmitsecurity-dev/ts-demo-client-lib'
 import { loadSession } from '@/helpers/session'
 import { userSessionStore } from '@/store/userSession'
@@ -48,32 +48,12 @@ onMounted(() => {
   }
 })
 
-onBeforeRouteLeave(async () => {
-  // Abord any conditional mediation started when the user leaves the login page
-  await window.tsPlatform.webauthn.authenticate.autofill.abort()
-})
-
 async function initializeWebauthn() {
   console.log('Verifying if webauthn is supported')
   window.tsPlatform.webauthn.isPlatformAuthenticatorSupported().then((supported: boolean) => {
     userSession.setWebAuthnSupported(supported)
     console.log(`Webauthn is ${supported ? '' : 'not'} supported`)
   })
-
-  console.log('Verifying if autofill is supported')
-  const autofillSupported = window.tsPlatform.webauthn.isAutofillSupported()
-  if (autofillSupported) {
-    console.log('Initializing conditional UI')
-    // First, abort any conditional mediation started when the user leaves the login page
-    await window.tsPlatform.webauthn.authenticate.autofill.abort()
-    // Then activate a new conditional mediation
-    await window.tsPlatform.webauthn.authenticate.autofill.activate({
-      onSuccess: loginWebauthnAutofill,
-      onError: onWebauthnAutofillError,
-    })
-  } else {
-    console.log('Autofill not supported')
-  }
 }
 
 async function loginPassword() {
@@ -107,8 +87,6 @@ async function loginPassword() {
 
 async function loginWebauthn() {
   try {
-    // Abort autofill login
-    await window.tsPlatform.webauthn.authenticate.autofill.abort()
     // Proceed to traditional login
     reportAction(Action.LOGIN)
     const webauthnEncodedResult = await window.tsPlatform.webauthn.authenticate.modal(email.value)
@@ -122,25 +100,6 @@ async function loginWebauthn() {
   } finally {
     loading.value = false
   }
-}
-
-async function loginWebauthnAutofill(webauthnEncodedResult: string) {
-  try {
-    reportAction(Action.LOGIN)
-    const response = await authApi.authenticateWebauthn({ webauthnEncodedResult })
-    console.log(response)
-    console.log(response.data)
-    await loadSession()
-    router.push({ name: 'home' })
-  } catch (error) {
-    // handleError(error)
-  } finally {
-    loading.value = false
-  }
-}
-
-async function onWebauthnAutofillError(error: any) {
-  // handleError(error)
 }
 
 const validationRules = {
@@ -208,7 +167,7 @@ const errorMessage = computed(() => {
               input-type="email"
               :display-invalid-message="false"
               :placeholder="$t('userData.email')"
-              autocomplete="username webauthn"
+              autocomplete="username"
               autofocus
             />
             <password-input
