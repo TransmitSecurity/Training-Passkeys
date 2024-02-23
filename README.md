@@ -26,6 +26,7 @@ Build the client lib
 cd client-lib
 npm install
 npm run build
+cd ..
 ```
 
 Start the demo
