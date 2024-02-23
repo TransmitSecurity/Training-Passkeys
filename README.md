@@ -13,20 +13,20 @@ Clone this repository, make sure to select the branch `adding-passkeys-starter`
 git clone -b adding-passkeys-starter https://github.com/mluizinkTS/Feb24Workshop.git
 ```
 
+Install the project dependencies.
+Make sure you have NodeJS 18.6 or higher.
+
+```bash
+npm install
+```
+
 Build the client lib
 
 ```bash
 cd client-lib
 npm install
 npm run build
-```
-
-Install the project dependencies (the client lib is one them, this is why we built it).
-Make sure you have NodeJS 18.6 or higher.
-
-```bash
 cd ..
-npm install
 ```
 
 Start the demo
