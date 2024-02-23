@@ -50,22 +50,29 @@ const registerApi = new RegistrationApi(undefined, import.meta.env.VITE_BACKEND_
 
 onMounted(() => {
   if (userSession.tsPlatformLoaded) {
-    checkWebauthnSupport()
+    // <-------------------- WEBINAR action -------------------->
+    // TODO uncomment this code
+    /* checkWebauthnSupport() */
   } else {
     // The ts platform SDK is not loaded yet, we need to wait
     // for it to be loaded and then initialize webauthn
     document.addEventListener('tsPlatformLoaded', function (e) {
-      checkWebauthnSupport()
+      // <-------------------- WEBINAR action -------------------->
+      // TODO uncomment this code
+      /* checkWebauthnSupport() */
     })
   }
 })
 
 async function checkWebauthnSupport() {
   console.log('Verifying if webauthn is supported')
-  window.tsPlatform.webauthn.isPlatformAuthenticatorSupported().then((supported: boolean) => {
-    userSession.setWebAuthnSupported(supported)
-    console.log(`Webauthn is ${supported ? '' : 'not'} supported`)
-  })
+  // <-------------------- WEBINAR action -------------------->
+  // TODO use isPlatformAuthenticatorSupported() to check if webauthn is supported
+  // TODO save the result "supported" in the user session for later use
+  // {
+  //   userSession.setWebAuthnSupported(supported)
+  //   console.log(`Webauthn is ${supported ? '' : 'not'} supported`)
+  // }
 }
 
 async function continueSignup() {
@@ -97,12 +104,14 @@ async function signupPassword() {
         // indicate that the user is now authenticated
         console.log(response)
         await loadSession()
-        // Suggest registering webauthn, if it is supported
-        if (userSession.webauthnSupported) {
+
+        // <-------------------- WEBINAR action -------------------->
+        // TODO uncomment the code below, suggesting registering webauthn, if it is supported
+        /* if (userSession.webauthnSupported) {
           router.push({ name: 'registerWebauthn' })
-        } else {
-          router.push({ name: 'home' })
-        }
+        } else { */
+        router.push({ name: 'home' })
+        /* } */
       } else {
         toast.error(response.statusText)
       }

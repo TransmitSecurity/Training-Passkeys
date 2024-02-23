@@ -50,10 +50,13 @@ onMounted(() => {
 
 async function initializeWebauthn() {
   console.log('Verifying if webauthn is supported')
-  window.tsPlatform.webauthn.isPlatformAuthenticatorSupported().then((supported: boolean) => {
-    userSession.setWebAuthnSupported(supported)
-    console.log(`Webauthn is ${supported ? '' : 'not'} supported`)
-  })
+  // <---------------------------------- WEBINAR action ---------------------------------->
+  // TODO use isPlatformAuthenticatorSupported() to verify if webauthn can be used
+  // save the result in the user session
+  // {
+  //   userSession.setWebAuthnSupported(supported)
+  //   console.log(`Webauthn is ${supported ? '' : 'not'} supported`)
+  // }
 }
 
 async function loginPassword() {
@@ -87,14 +90,18 @@ async function loginPassword() {
 
 async function loginWebauthn() {
   try {
-    // Proceed to traditional login
     reportAction(Action.LOGIN)
-    const webauthnEncodedResult = await window.tsPlatform.webauthn.authenticate.modal(email.value)
-    const response = await authApi.authenticateWebauthn({ webauthnEncodedResult })
+    // <---------------------------------- WEBINAR action ---------------------------------->
+    // TODO use authenticate.modal() to trigger a webauthn authentication
+    // save the result in a variable called webauthnEncodedResult
+
+    // <---------------------------------- WEBINAR action ---------------------------------->
+    // TODO uncomment the following code finishing the authentication
+    /* const response = await authApi.authenticateWebauthn({ webauthnEncodedResult })
     console.log(response)
     console.log(response.data)
     await loadSession()
-    router.push({ name: 'home' })
+    router.push({ name: 'home' }) */
   } catch (error) {
     // handleError(error)
   } finally {

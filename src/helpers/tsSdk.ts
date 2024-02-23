@@ -12,17 +12,18 @@ export function initWhenLoaded() {
   if (platformScript) {
     platformScript.addEventListener('load', async function () {
       try {
+        // We need the client ID to initialize the SDK
+        // in this case our backend is providing it to us
         const response = await configApi.getClientId()
-
         console.log('Retrieved client id')
         console.log(response)
+
         if (response.status == 200) {
           console.log('TSPlatform -- Starting init')
-          await window.tsPlatform.initialize({
-            clientId: response.data.clientId,
-            webauthn: { serverPath: import.meta.env.VITE_TS_SERVER_PATH },
-          })
+          // <----------------------- WEBINAR - add code here ----------------------->
+          // TODO initialize the platform SDK here
           console.log('TSPlatform -- End init')
+
           // Dispatch an event indicating that the SDK was initialized
           // this is helpful whenever webauthn authentication needs to be used
           // and we need to wait for the SDK
@@ -32,6 +33,7 @@ export function initWhenLoaded() {
               time: new Date(),
             },
           })
+
           document.dispatchEvent(event)
           const userSession = userSessionStore()
           userSession.setTsPlatformLoaded(true)

@@ -49,7 +49,10 @@ onBeforeMount(async () => {
 
 async function registerWebauthn() {
   try {
-    const webauthnEncodedResult = await window.tsPlatform.webauthn.register(userSession.email)
+    // <---------------------------- WEBINAR action ---------------------------->
+    // TODO use the function register() of the Transmit SDK
+    // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#2-register-credential-on-device
+    const webauthnEncodedResult = 'remove this string and use the function register here'
     reportAction(Action.REGISTER)
     const response = await registerApi.registerWebauthn({
       webauthnEncodedResult,
