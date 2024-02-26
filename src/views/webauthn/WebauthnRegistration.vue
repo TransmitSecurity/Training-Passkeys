@@ -54,6 +54,10 @@ async function registerWebauthn() {
     // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#2-register-credential-on-device
     const webauthnEncodedResult = 'remove this string and use the function register here'
     reportAction(Action.REGISTER)
+    // Once the key credentials have been created locally, we return an encoded result
+    // to the application backend, this result will then be given to Transmit to finish
+    // the registration. This corresponds to step 4.3 in the following diagram:
+    // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#new-credential-registration
     const response = await registerApi.registerWebauthn({
       webauthnEncodedResult,
     })

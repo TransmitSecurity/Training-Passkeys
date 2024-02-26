@@ -68,6 +68,7 @@ async function checkWebauthnSupport() {
   console.log('Verifying if webauthn is supported')
   // <-------------------- WEBINAR action -------------------->
   // TODO use isPlatformAuthenticatorSupported() to check if webauthn is supported
+  // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#1-check-for-webauthn-support
   // TODO save the result "supported" in the user session for later use
   // {
   //   userSession.setWebAuthnSupported(supported)

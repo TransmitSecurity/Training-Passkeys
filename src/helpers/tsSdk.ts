@@ -22,6 +22,7 @@ export function initWhenLoaded() {
           console.log('TSPlatform -- Starting init')
           // <----------------------- WEBINAR - add code here ----------------------->
           // TODO initialize the platform SDK here
+          // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#step-3-initialize-the-sdk
           console.log('TSPlatform -- End init')
 
           // Dispatch an event indicating that the SDK was initialized

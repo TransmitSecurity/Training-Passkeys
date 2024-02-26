@@ -52,6 +52,7 @@ async function initializeWebauthn() {
   console.log('Verifying if webauthn is supported')
   // <---------------------------------- WEBINAR action ---------------------------------->
   // TODO use isPlatformAuthenticatorSupported() to verify if webauthn can be used
+  // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#1-check-for-webauthn-support
   // save the result in the user session
   // {
   //   userSession.setWebAuthnSupported(supported)
@@ -93,10 +94,13 @@ async function loginWebauthn() {
     reportAction(Action.LOGIN)
     // <---------------------------------- WEBINAR action ---------------------------------->
     // TODO use authenticate.modal() to trigger a webauthn authentication
+    // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#1-authenticate-on-device
     // save the result in a variable called webauthnEncodedResult
 
     // <---------------------------------- WEBINAR action ---------------------------------->
     // TODO uncomment the following code finishing the authentication
+    // This corresponds to step 5.2 in the following diagram
+    // https://developer.transmitsecurity.com/guides/webauthn/quick_start_sdk/#single-device-authentication
     /* const response = await authApi.authenticateWebauthn({ webauthnEncodedResult })
     console.log(response)
     console.log(response.data)
