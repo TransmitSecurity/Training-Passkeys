@@ -5,6 +5,13 @@ This repository contains three branches:
 - **adding-passkeys-starter** is the starting point of the webinar, a base code to learn how to implement passkeys in a project, with Transmit Security
 - **adding-passkeys-solution** is the solution of the webinar, where passkeys are integrated (without autofill)
 
+## Prerequistes
+
+Software installed:
+- git
+- NodeJS 18.6+, with npm
+- A Javascript IDE, we recommend [VSCode](https://code.visualstudio.com/)
+
 ## Getting started
 
 Clone this repository, make sure to select the branch `adding-passkeys-starter`
