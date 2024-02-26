@@ -50,7 +50,13 @@ onMounted(() => {
 
 onBeforeRouteLeave(async () => {
   // Abord any conditional mediation started when the user leaves the login page
-  await window.tsPlatform.webauthn.authenticate.autofill.abort()
+  if (userSession.tsPlatformLoaded) {
+    try {
+      await window.tsPlatform.webauthn.authenticate.autofill.abort()
+    } catch (e) {
+      return true
+    }
+  }
 })
 
 async function initializeWebauthn() {
