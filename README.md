@@ -10,11 +10,11 @@ This repository contains three branches:
 Clone this repository, make sure to select the branch `adding-passkeys-starter`
 
 ```bash
-git clone -b adding-passkeys-starter https://github.com/TransmitSecurity/Feb27Workshop.git
+git clone -b adding-passkeys-starter https://github.com/TransmitSecurity/Feb24Workshop.git
 ```
 
 Install the project dependencies.
-Make sure you have NodeJS 18.6 or higher.
+Make sure you have *NodeJS 18.6 or higher*.
 
 ```bash
 npm install
@@ -28,3 +28,9 @@ npm run dev
 
 Follow the webinar !
 You also have the documentation in [./docs/add-passkeys.md](./docs/add-passkeys.md).
+
+## Resources
+
+You can use NVM to manage multiple versions of NodeJS
+* [NVM for Windows](https://github.com/coreybutler/nvm-windows)
+* [NVM on MacOS](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
