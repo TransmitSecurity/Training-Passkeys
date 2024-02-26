@@ -153,14 +153,6 @@ const passwordValidation$ = useVuelidate(passwordValidationRules, {
   password,
   passwordConfirmation,
 })
-
-function fillInDemo() {
-  phone.value = import.meta.env.VITE_DEMO_PHONE || '+33790104001'
-  firstName.value = import.meta.env.VITE_DEMO_FIRST_NAME || 'Martin'
-  lastName.value = import.meta.env.VITE_DEMO_LAST_NAME || 'Dupont'
-  password.value = import.meta.env.VITE_DEMO_PASSWORD || 'mlkjmlkj'
-  email.value = import.meta.env.VITE_DEMO_EMAIL || 'martin@dupont.com'
-}
 </script>
 
 <template>
@@ -172,9 +164,6 @@ function fillInDemo() {
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <div class="flex justify-center">
-        <a class="link" @click="fillInDemo">Fill with test data</a>
-      </div>
       <!-- Form asking for personal information and contact information -->
       <form
         v-if="screenToShow == 'userInfo'"
