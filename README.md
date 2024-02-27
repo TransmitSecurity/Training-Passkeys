@@ -17,7 +17,7 @@ Software installed:
 Clone this repository, make sure to select the branch `adding-passkeys-starter`
 
 ```bash
-git clone -b adding-passkeys-starter https://github.com/TransmitSecurity/Feb24Workshop.git
+git clone -b adding-passkeys-starter https://github.com/TransmitSecurity/Feb27Workshop.git
 ```
 
 Install the project dependencies.
