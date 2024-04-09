@@ -2,8 +2,8 @@
 
 This repository contains three branches:
 - **main**: shows a full passkey integration, with autofill
-- **adding-passkeys-starter** is the starting point of the webinar, a base code to learn how to implement passkeys in a project, with Transmit Security
-- **adding-passkeys-solution** is the solution of the webinar, where passkeys are integrated (without autofill)
+- **adding-passkeys-starter** is the starting point, a base code to learn how to implement passkeys in a project, with Transmit Security
+- **adding-passkeys-solution** is the solution, where passkeys are integrated (without autofill)
 
 ## Prerequistes
 
