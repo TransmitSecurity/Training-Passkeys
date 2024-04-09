@@ -33,7 +33,7 @@ Start the demo
 npm run dev
 ```
 
-Follow the webinar !
+Follow the training !
 You also have the documentation in [./docs/add-passkeys.md](./docs/add-passkeys.md).
 
 ## Resources
