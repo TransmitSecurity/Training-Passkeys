@@ -1,9 +1,9 @@
-# Transmit Security Webinar - February 27th, 2024
+# Transmit Security
 
 This repository contains three branches:
 - **main**: shows a full passkey integration, with autofill
-- **adding-passkeys-starter** is the starting point of the webinar, a base code to learn how to implement passkeys in a project, with Transmit Security
-- **adding-passkeys-solution** is the solution of the webinar, where passkeys are integrated (without autofill)
+- **adding-passkeys-starter** is the starting point, a base code to learn how to implement passkeys in a project, with Transmit Security
+- **adding-passkeys-solution** is the solution, where passkeys are integrated (without autofill)
 
 ## Prerequistes
 
@@ -17,7 +17,7 @@ Software installed:
 Clone this repository, make sure to select the branch `adding-passkeys-starter`
 
 ```bash
-git clone -b adding-passkeys-starter https://github.com/TransmitSecurity/Feb27Workshop.git
+git clone -b adding-passkeys-starter https://github.com/TransmitSecurity/Training-Passkeys.git
 ```
 
 Install the project dependencies.
